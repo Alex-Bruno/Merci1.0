@@ -44,6 +44,7 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnEditarTelaListarUsuario = new javax.swing.JButton();
         btnExcluirTelaListarUsuario = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,11 +83,19 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
             }
         });
 
-        btnExcluirTelaListarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/merci/apresentacao/Imagens/iconDelete.png"))); // NOI18N
+        btnExcluirTelaListarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/merci/apresentacao/Imagens/eraser.png"))); // NOI18N
         btnExcluirTelaListarUsuario.setText("Excluir");
         btnExcluirTelaListarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirTelaListarUsuarioActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/merci/apresentacao/Imagens/iconDelete.png"))); // NOI18N
+        jButton1.setText("Fechar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -95,10 +104,12 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(btnEditarTelaListarUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExcluirTelaListarUsuario))
+                .addComponent(btnExcluirTelaListarUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +117,8 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarTelaListarUsuario)
-                    .addComponent(btnExcluirTelaListarUsuario))
+                    .addComponent(btnExcluirTelaListarUsuario)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -191,6 +203,14 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnExcluirTelaListarUsuarioActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String mensagem = "Deseja realmente sair ?";
+        int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Excluir usuario", JOptionPane.YES_NO_OPTION);
+        if( opcao == JOptionPane.YES_OPTION)
+            this.dispose();
+                       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,6 +251,7 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditarTelaListarUsuario;
     private javax.swing.JButton btnExcluirTelaListarUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlTabelaDeUsuarios;
