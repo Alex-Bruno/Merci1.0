@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/alex/Música/Merci1.0-master/src/br/edu/ifnmg/merci/negocio/UsuarioBO.java</file>
+            <file>file:/home/alex/Música/Merci1.0-master/src/br/edu/ifnmg/merci/apresentacao/TelaListarUsuariosForm.java</file>
+            <file>file:/home/alex/Música/Merci1.0-master/src/br/edu/ifnmg/merci/apresentacao/TelaUsuariosForm.java</file>
+        </group>
     </open-files>
 </project-private>

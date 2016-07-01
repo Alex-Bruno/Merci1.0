@@ -47,9 +47,11 @@ public class TelaUsuariosForm extends javax.swing.JFrame {
     }
 
     TelaUsuariosForm(Usuario userSelecionado) {
-       initComponents();
+        initComponents();
         
-        this.preencheCampos(userSelecionado);
+        this.atualizaUsuario( userSelecionado);
+
+        this.preencheCampos( usuario);
         
         this.bloqueiaCampos();
     }
@@ -254,10 +256,11 @@ public class TelaUsuariosForm extends javax.swing.JFrame {
             
             usuario.setCodido(-1);
             String login = usuario.getLogin();
+          
             this.recumperaCamposCadastro();
             
             
-            if( status != true)
+            if( status != true && usuarioBO.verificaLoginCadastrado(login)  == true)
                 login = usuario.getLogin();
             
                 usuario.setCodido( usuarioBO.cadastrarUsuario( usuario, login));
@@ -610,6 +613,13 @@ public class TelaUsuariosForm extends javax.swing.JFrame {
             if( (senha.charAt(i) > 'Z' && senha.charAt(i) > 'A') && (senha.charAt(i) > 'z' && senha.charAt(i) > 'a') && (senha.charAt(i) > '0' && senha.charAt(i) > '9'))
                 throw new UsuarioCaractereInvalidoSenhaException();
                 
+    }
+
+    private void atualizaUsuario(Usuario userSelecionado) {
+        this.usuario.setLogin( userSelecionado.getLogin());
+        this.usuario.setNome(userSelecionado.getNome());
+        this.usuario.setSenha(userSelecionado.getSenha());
+        this.usuario.setGrupoUsuarios( userSelecionado.getGrupoUsuarios());
     }
 
 }

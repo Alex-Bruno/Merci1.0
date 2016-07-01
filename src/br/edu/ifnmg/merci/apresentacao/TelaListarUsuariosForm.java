@@ -19,6 +19,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TelaListarUsuariosForm extends javax.swing.JFrame {
     
+    private static TelaUsuariosForm telaUsuario;
     private static ArrayList< Usuario> listaUsuario = new ArrayList<>();
     
     /**
@@ -45,6 +46,7 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
         btnEditarTelaListarUsuario = new javax.swing.JButton();
         btnExcluirTelaListarUsuario = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,12 +101,20 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
             }
         });
 
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(btnAtualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEditarTelaListarUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExcluirTelaListarUsuario)
@@ -118,7 +128,8 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarTelaListarUsuario)
                     .addComponent(btnExcluirTelaListarUsuario)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(btnAtualizar))
                 .addContainerGap())
         );
 
@@ -149,9 +160,7 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
     private void btnEditarTelaListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTelaListarUsuarioActionPerformed
         int codigoUsuarioAlterar = this.tblListaUsuarios.getSelectedRow();
        
-        try {
-                TelaUsuariosForm telaUsuario ;
-                 
+        try {                 
                    if( codigoUsuarioAlterar >= 0){
                        Usuario userSelecionado = listaUsuario.get( codigoUsuarioAlterar);
                        
@@ -160,8 +169,8 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
                        
                        if( opcao == JOptionPane.YES_OPTION){
                             telaUsuario = new TelaUsuariosForm( userSelecionado);
-                            telaUsuario.setVisible(true);  
-                            this.inicializaTabela();
+                            telaUsuario.setVisible(true); 
+                            
                        }
                    }
                    else{
@@ -211,6 +220,10 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
                        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        this.inicializaTabela();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +262,7 @@ public class TelaListarUsuariosForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnEditarTelaListarUsuario;
     private javax.swing.JButton btnExcluirTelaListarUsuario;
     private javax.swing.JButton jButton1;

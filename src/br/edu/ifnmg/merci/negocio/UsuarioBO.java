@@ -39,11 +39,14 @@ public class UsuarioBO {
     }
 
     public int cadastrarUsuario(Usuario usuario, String login) throws SQLException, UsuarioLoginCadastradoException {
-        if( verificaLoginCadastrado( login) == true){
+        if( verificaLoginCadastrado( login) == true && verificaLoginCadastrado( usuario.getLogin())){
             return usuarioDAO.inserirUsuario( usuario);
         
         }else{
+            if( verificaLoginCadastrado(login) == false)
                 return usuarioDAO.alterarUsuario( usuario, login);
+            else
+                return usuarioDAO.alterarUsuario( usuario, usuario.getLogin());
         }
         
     }
@@ -52,7 +55,7 @@ public class UsuarioBO {
         return usuarioDAO.selectTodosLogin();
     }
 
-    private boolean verificaLoginCadastrado(String login) throws SQLException {
+    public boolean verificaLoginCadastrado(String login) throws SQLException {
         LinkedList<String> listaLogin = this.selectTodosLogin();
         boolean status = true;
         
